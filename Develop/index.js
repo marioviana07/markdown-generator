@@ -69,7 +69,7 @@ const promptUser = [
     },
 
     {
-        type: 'checkbox',
+        type: 'list',
         name: 'license',
         message: 'What kind of license should your project have? (Check all that apply)',
         choices: [
