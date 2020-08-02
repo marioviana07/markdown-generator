@@ -1,8 +1,18 @@
 // function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
+const mapOfKeyToMarkdDown = new Map([
+    ['title', '#'],
+    ['description', '## Description:'],
+    ['Installation', 'Installation instruction:'],
+    ['usage', 'Project use:'],
+    ['license', 'License:'],
+    ['contribution', 'Contribution:'],
+    ['github', 'Github UserName:'],
+    ['email', 'User E-mail:'],
+]);
 
-`;
-}
+
+
+
+
 
 module.exports = generateMarkdown;
