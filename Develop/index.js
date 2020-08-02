@@ -1,4 +1,4 @@
-const inquirer = inquirer('inquirer');
+const inquirer = require('inquirer');
 const fs = require('fs');
 const path = require('path');
 const generateMarkdown = require('./utils/generateMarkdown');
@@ -111,11 +111,28 @@ const promptUser = [
 
 
 // function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    const inputData = generateMarkdown(data);
+    fs
+        .writeFileSync(fileName, inputData, err => {
+            if (err) {
+                return console(err);
+            }
+        });
+}
+
 
 // function to initialize program
-function init() {
-
+async function init() {
+    inquirer
+        .prompt(promptUser)
+        .then(data => {
+            console.log(JSON.stringify(data, null, 2));
+            writeToFile("README.md", data);
+        })
+        .catch(error => {
+            console.error('ERROR=>', error);
+        });
 }
 
 // function call to initialize program
