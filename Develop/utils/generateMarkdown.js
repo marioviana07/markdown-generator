@@ -33,7 +33,7 @@ function generateMarkdown(data) {
             console.log(license)
             console.log(mapOfLicenseToBadge)
             const title = data[key];
-            results += `# ${title} (#${title}) &middot; ${mapOfLicenseToBadge.get(license)}`;
+            results += `# ${title} &middot; ${mapOfLicenseToBadge.get(license)}`;
         } else if (key == 'description') {
             results += `\n Description`;
             results += `\n${data[key]}`;
@@ -57,6 +57,8 @@ function generateMarkdown(data) {
     });
     return results;
 }
+
+
 
 
 
